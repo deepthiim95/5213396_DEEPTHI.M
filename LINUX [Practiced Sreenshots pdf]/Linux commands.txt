@@ -1,0 +1,699 @@
+
+    1  ls
+    2  pwd
+    3  mkdir eepthi
+    4  cd
+    5  cp
+    6  mvfile.txt
+    7  rm newfile
+    8  date
+    9  bc
+   10  ls
+   11  date
+   12  bc
+   13  9595
+   14  sudo apt update
+   15  mount -o remount,rw /
+   16  mount -o remount,rw /
+   17  bash
+   18  rust
+   19  sudo update
+   20  sudo apt update
+   21  passwd
+   22  passwd eepthi
+   23  sudo passwg eepthi
+   24  sudo passwd root
+   25  passwd -u eepthi
+   26  password
+   27  ls
+   28  sudo apt update
+   29  passwd
+   30  date
+   31  bc
+   32  ls
+   33  sudo apt update
+   34  sudo apt upgrade
+   35  clear
+   36  echo $SHELL
+   37  printenv SHELL
+   38  whoami
+   39  whatis echo
+   40  whatis printenv
+   41  whatis whoami
+   42  whatis cat
+   43  whereis cat
+   44  whereis gcc
+   45  info cat
+   46  echo $SHELL
+   47  printenv SHELL
+   48  whoami
+   49  whatis echo
+   50  whatis printenv
+   51  whatis whoami
+   52  whatis cat
+   53  whatis cat
+   54  whereis cat
+   55  whereis gcc
+   56  info cat
+   57  sudo apt install gcc
+   58  clear
+   59  date
+   60  date "+%D"
+   61  date "+%D %T"
+   62  date "+%Y-%m-%d"
+   63  date "+%Y/%m/%d"
+   64  date --date "tomorrow"
+   65  date --date "2 years ago"
+   66  man date
+   67  clear
+   68  cal
+   69  sudo apt install ncal
+   70  cal
+   71  cal 7 2025
+   72  cal 5 2025
+   73  cal 2025
+   74  cal -3 2025
+   75  cal -3
+   76  cal -3 2025
+   77  clear
+   78  ps
+   79  exit
+   80  Linux
+   81  echo "This is
+   82  Linux
+   83  Training
+   84  for
+   85  Notchup
+   86  july 2025"
+   87  echo "This is Linux Training for Notchup July 2025"
+   88  printf "My shell is %s\n" $SHELL
+   89  seq 1 10
+   90  seq 1 3 10
+   91  seq 10 -1 1
+   92  seq 20 -2 0
+   93  seq -s " " 10
+   94  seq -s 5 10
+   95  rev <<< Linux
+   96  history
+   97  history
+   98  seq 1 10
+   99  date --date "2 years ago"
+  100  sudo apt install ncal
+  101  echo $?
+  102  false
+  103  echo $?
+  104  ls
+  105  nano newfile
+  106  bc <<< "12/5"
+  107  bc <<< "scale=2; 12/5"
+  108  bc <<< "2>5"
+  109  bc <<< "2^10"
+  110  uname
+  111  uname -o
+  112  uname -i
+  113  uname -n
+  114  uname -v
+  115  uname -s
+  116  uname -m
+  117  uname -r
+  118  uname -a
+  119  echo "Welcome to Linux"
+  120  echo -e "Hello \t World"
+  121  echo -n "Hello \t World"
+  122  echo 'date'
+  123  echo "This is
+  124  d
+  125  d
+  126  d
+  127  d
+  128  clear
+  129  sl.exe
+  130  wsl.exe
+  131  kj
+  132  "
+  133  clear
+  134  cd new
+  135  ls
+  136  mkdir new
+  137  cd new
+  138  cd ~
+  139  cd /home/eepthi
+  140  mkdir new
+  141  cd new
+  142  sudo mkdir new
+  143  nano newfile
+  144  cd new
+  145  cd /home/eepthi
+  146  cd new
+  147  cd
+  148  cd new
+  149  mkdir new1 new2
+  150  ls
+  151  cd
+  152  cd -
+  153  mkdir -p d1/d2
+  154  ls
+  155  cd d1
+  156  ls
+  157  ls -l
+  158  cd
+  159  ls -l
+  160  ls -a
+  161  ls -R
+  162  nano demo
+  163  wc demo
+  164  nano demo
+  165  cd
+  166  cd  home/eepthi
+  167  cd  /home/eepthi
+  168  cd
+  169  cd  /home/eepthi
+  170  cd new
+  171  wc demo
+  172  cd
+  173  echo " This is a test file"> demo
+  174  wc demo
+  175  touch newfile.txt
+  176  history
+  177  clear
+  178  touch newfile.txt
+  179  cd
+  180  touch newfile.txt
+  181  nano newfile.txt
+  182  cat newfile.txt
+  183  cat newfile.txt > output.txt
+  184  cd ~
+  185  echo "Hello World">newfile.txt
+  186  cat newfile.txt > output.txt
+  187  ls
+  188  cat output.txt
+  189  cat newfile.txt
+  190  cat -n demo
+  191  ls
+  192  mkdir training
+  193  cp newfile output.txt training
+  194  cd training
+  195  cd
+  196  ls
+  197  ls -R
+  198  cp -r new training
+  199  ls
+  200  cd training
+  201  ls cd new
+  202  ls
+  203  cd
+  204  mv output.txt out
+  205  is
+  206  ls
+  207  mv out training
+  208  ls
+  209  cd training
+  210  ls
+  211  vi sum.c
+  212  cat newfile.txt
+  213  cd
+  214  cat newfile.txt
+  215  cat output.txt
+  216  cat -n demo
+  217  ls
+  218  mkdir training
+  219  cd
+  220  mkdir training
+  221  cp newfile output.txt training
+  222  mkdir Deepthi
+  223  cp newfile output.txt Deepthi
+  224  cd Deepti
+  225  cd Deepthi
+  226  ls cd ls ls -R
+  227  ls
+  228  cd
+  229  ls
+  230  ls -R
+  231  cd -r new Deepthi
+  232  cp -r new Deepthi
+  233  cd Deepthi
+  234  cd
+  235  cd Deepthi
+  236  ls
+  237  cd
+  238  ls
+  239  ls-R
+  240  cp -r new Deepthi
+  241  ls
+  242  cd training
+  243  ls
+  244  cd new
+  245  ls
+  246  cd
+  247  mv output.txt out
+  248  ls
+  249  cd Deepthi
+  250  ls cd new
+  251  ls mv output.txt out
+  252  mv output.txt out
+  253  ls
+  254  mv out Deepthi
+  255  ls
+  256  cd Deepthi
+  257  ls vi sum.c
+  258  vi sum.c
+  259  clear
+  260  gcc sum.c &&./a.out
+  261  cd
+  262  gcc sum.c &&./a.out
+  263  ls -l
+  264  rm training
+  265  rm Deepthi
+  266  mv training training.txt
+  267  mkdir training
+  268  gcc sum.c &&./a.out
+  269  gcc sum.c && ./a.out
+  270  sudo apt install update
+  271  gcc ifelse.c
+  272  cd
+  273  gcc ifelse.c
+  274  gcc sum.c && ./a.out
+  275  vi sum.c
+  276  gcc sum.c && ./a.out
+  277  vi sum.c
+  278  gcc sum.c && ./a.out
+  279  find .-name sum.c
+  280  cd~
+  281  pwd
+  282  vi sum.c
+  283  cd~
+  284  vi sum.c
+  285  gcc sum.c && ./a.out
+  286  vim sum
+  287  sudo vim sum.c
+  288  sudo vim sum.c
+  289  vi sum.c
+  290  gcc sum.c -o sum
+  291  cd~
+  292  gcc sum.c -o sum.out./sum.out
+  293  cd~
+  294  gcc /path/to/sum.c -o sum./sum
+  295  sudo gcc sum.c -0 sum
+  296  sudo gcc sum.c -o sum
+  297  gcc sum.c && ./a.out
+  298  sudo apt install update
+  299  sudo apt install gcc
+  300  gcc ifelse.c
+  301  cd notchupfy26
+  302  gcc ifelse.c
+  303  cd
+  304  pwd
+  305  ls
+  306  cd
+  307  cd /home/eepthi
+  308  cd/home
+  309  cd home
+  310  cd /home
+  311  cd / eepthi
+  312  cd sum.c
+  313  mkdir sum.c
+  314  cd
+  315  mkdir sum.c
+  316  ls
+  317  gcc sum.c -o output_sum
+  318  gcc sum.c -o sum
+  319  apt update
+  320  sudo apt install gcc
+  321  cd
+  322  sum.c
+  323  mkdir sum.c
+  324  gcc sum.c -o sum
+  325  gcc
+  326  sum.c
+  327  mkdir sum.c
+  328  clear
+  329  gcc sum.c -o sum
+  330  pwd
+  331  vi add.c
+  332  cd ~
+  333  ls
+  334  cd
+  335  ls
+  336  cd
+  337  ls
+  338  cd~
+  339  ls
+  340  gcc sum.c -o sum
+  341  ./sum
+  342  vi sum.c
+  343  gcc sum.c && ./a.out
+  344  ./sum
+  345  sudo apt install update
+  346  sudo apt install gcc
+  347  gcc ifelse.c
+  348  cd~
+  349  ls
+  350  vi ifelse.c
+  351  gcc ifelse.c -o ifelse
+  352  ls
+  353  vi ifelse.c
+  354  ls
+  355  gcc ifelse.c -o ifelse
+  356  ls
+  357  cd~
+  358  ls
+  359  vi ifelse.c
+  360  gcc ifelse.c -o ifelse
+  361  gcc ifelse.c -oifelse
+  362  ./ifelse
+  363  ls
+  364  ./ifelse
+  365  ./out
+  366  gcc ifelse.c
+  367  gcc 1darray,c
+  368  ./a.out
+  369  sudo apt install update
+  370  sudo apt update
+  371  sudo apt upgrade
+  372  sudo apt install build-essential
+  373  exit
+  374  sudo apt install update
+  375  sudo apt update
+  376  sudo apt upgrade
+  377  sudo apt update
+  378  sudo apt upgrade
+  379  sudo apt update
+  380  sudo apt install update
+  381  sudo apt install build-essential
+  382  exit
+  383  sudo apt update
+  384  sudo apt install build-essential
+  385  exit
+  386  sudo apt update
+  387  sudo apt upgrade
+  388  sudp apt install build-essential
+  389  sudo apt install build-essential
+  390  sudo apt install g++
+  391  date; uname -r; whoami
+  392  date; unam -r; whoami
+  393  date && whoami
+  394  dat && whoami
+  395  date "+%D"
+  396  date "+%D %T"
+  397  date "+%Y - %m - %d"
+  398  date "+%Y/%m/%d"
+  399  date "+%A %B %d %y %T"
+  400  date "+%A %B %d %Y %T"
+  401  info date
+  402  date --date "tomorrow"
+  403  date --date "2 years ago"
+  404  cal 10 2025
+  405  cal 2025
+  406  cal -3
+  407  cal -5
+  408  cal --5
+  409  bc
+  410  bc <<< "scale=2; 12/5"
+  411  bc <<< "2^10"
+  412  uname -o
+  413  uname -i
+  414  uname -n
+  415  uname -v
+  416  uname -s
+  417  uname -m
+  418  uname -r
+  419  uname -a
+  420  echo -e "Hello \t World"
+  421  echo -n "Hello world"
+  422  echo "Welcome to \"Linux Training\""
+  423  echo "date"
+  424  echo date
+  425  echo `date`
+  426  echo "Welcome to
+  427   \"Linux\"
+  428  Training"
+  429  seq 20 -2 1
+  430  seq -s " " 10
+  431  seq -s " " 5 10
+  432  seq -s " " 5 3 15
+  433  rev <<< linux training
+  434  rev <<< linux
+  435  history 10
+  436  seq 1 3 10
+  437  date --date "2 years ago"
+  438  echo $?
+  439  unam -r
+  440  rev training
+  441  rev <<training
+  442  "
+  443  quite
+  444  ""
+  445  echo $?
+  446  unam -r
+  447  echo $?
+  448  unam -r
+  449  sudo apt install <deb name>
+  450  unam -r
+  451  uname -r
+  452  echo $?
+  453  man cat
+  454  nano test
+  455  ls
+  456  cd training
+  457  ls
+  458  cd
+  459  cd ..
+  460  cd /home
+  461  ped
+  462  pwd
+  463  ls
+  464  cd training
+  465  mkdir training
+  466  cd
+  467  cd new
+  468  cd ..
+  469  cd new
+  470  cd ..
+  471  cd new
+  472  cd
+  473  cd -
+  474  cd
+  475  pwd
+  476  cd -
+  477  pwd
+  478  cd
+  479  mkdir stepin
+  480  cd stepin
+  481  ls
+  482  cd sdlc
+  483  mkdir -p models/agile
+  484  ls
+  485  cd models
+  486  ls
+  487  cd
+  488  ls
+  489  ls -l
+  490  ls -a
+  491  ls -R
+  492  cd stepin
+  493  ls -R
+  494  cd agile
+  495  cd sdlc
+  496  cd models
+  497  nano cicd
+  498  wc cicd
+  499  wc this is day 2 of the training
+  500  cd
+  501  wc this is day 2 of the training
+  502  wc cicd
+  503  ls
+  504  wc newfile.txt
+  505  wc cicd
+  506  wc cicd.txt
+  507  ls
+  508  wc cicd.txt
+  509  wc cicd
+  510  touch cicd.txt
+  511  wc cicd
+  512  wc newfile.txt
+  513  touch cicd.txt
+  514  wc cicd
+  515  clear
+  516  wc
+  517  touch newfile.txt
+  518  ls
+  519  nano newfile.txt
+  520  cat newfile.txt
+  521  cat cicd
+  522  cat cicd > new.txt
+  523  cat new.txt
+  524  cat -n cicd
+  525  tac cicd
+  526  cd ..
+  527  ls
+  528  cd ..
+  529  cd
+  530  ls
+  531  cd~
+  532  cd ~
+  533  pwd
+  534  touch newfile.txt
+  535  ls
+  536  cat newfile.txt
+  537  cat cicd
+  538  cat cicd > new.txt
+  539  ls
+  540  cat cicd > new.txt
+  541  cat cicd
+  542  cat cicd.txt > new.txt
+  543  cat cicd
+  544  cat cicd.txt
+  545  cat -n cicd.txt
+  546  tac cicd.txt
+  547  cd..
+  548  cd ..
+  549  ls
+  550  cp demo newfile stepin
+  551  cp demo newfile.txt stepin
+  552  ls
+  553  cd stepin
+  554  ls
+  555  cp -r training stepin
+  556  cd
+  557  cd ..
+  558  ls
+  559  cd ..
+  560  cd
+  561  ls
+  562  cp demo newfile stepin
+  563  cp demo newfile.txt stepin
+  564  ls
+  565  cd stepin
+  566  ls
+  567  cp -r training stepin
+  568  cp -r training.txt stepin
+  569  cd
+  570  cp -r training.txt stepin
+  571  cd stepin
+  572  ls
+  573  mv newfile.txt Day2
+  574  ls
+  575  rm Day2
+  576  ls
+  577  cd
+  578  ls
+  579  rm n*
+  580  rm newfile.txt newfile.txt.save
+  581  rm -r n*
+  582  ls
+  583  cd new
+  584  ls cd rm -r new
+  585  ls
+  586  history
+  587  clear
+  588  v. sum.c
+  589  cd
+  590  ls
+  591  v. add.c
+  592  history
+  593  clear
+  594  gcc sum.c && ./a.out
+  595  cd~
+  596  mv /sum.c
+  597  mv /sum.c .
+  598  gcc sum.c && ./a.out
+  599  vi filecmd
+  600  cat filecmd
+  601  cat sum.c
+  602  gcc sum.c
+  603  ./a.out
+  604  gcc sum.c && ./a.out
+  605  cd~
+  606  cd ~
+  607  mv / sum.c
+  608  mv / sum.c .
+  609  gcc sum.c && ./a.out
+  610  clear
+  611  vi sum.c
+  612  cd ~
+  613  mv /sum.c .
+  614  rmdir sum.c
+  615  rm -r sum.c
+  616  mv /sum.c .
+  617  a.out
+  618  ./a.out
+  619  /sum.c
+  620  vi sum.c
+  621  gcc sum.c && ./a.out
+  622  vi filecmd
+  623  cat filecmd
+  624  cat sum.c
+  625  gcc sum.c
+  626  ./a.out
+  627  gcc sum.c && ./a.out
+  628  ls
+  629  more filecmd
+  630  nano filecmd
+  631  more filecmd
+  632  less filecmd
+  633  head -n 5 filecmd
+  634  tail filecmd
+  635  tail +5 filecmd
+  636  nano sample.txt
+  637  cat sample.txt
+  638  cut -c 1-3 sample.txt
+  639  history
+  640  ls
+  641  cat demo
+  642  nano f1
+  643  nano f2
+  644  cat f1
+  645  cat f2
+  646  paste f1 f2
+  647  cat sample.txt
+  648  sort sample.txt
+  649  sort sample.txt -r
+  650  sort -t ':' -k2 sample.txt
+  651  sort -t ':' -k3 sample.txt
+  652  sort -t ':' -k4 sample.txt
+  653  cat sample.txt
+  654  ls
+  655  tr ':' '|' < sample.txt > s1.txt
+  656  ls
+  657  tr ':0' '|$' < sample.txt
+  658  cat sample.txt
+  659  tr -s '0' < sample.txt
+  660  cat sample.txt
+  661  nano example.txt
+  662  cat example.txt
+  663  nano example.txt
+  664  ls
+  665  cat sample.txt
+  666  cat s1.txt
+  667  cmp sample.txt s1.txt
+  668  diff sample.txt s1.txt
+  669  ls
+  670  cat test.c
+  671  grep ^int test.c
+  672  grep \; test.c
+  673  nano test.c
+  674  sed 's/Hello/Hi/' sed_test
+  675  cat sed_test
+  676  sed -i 's/Hello/Hi/' sed_test
+  677  nano employees.txt
+  678  cat employees.txt
+  679  awk '{print $0}' employees.txt
+  680  awk '{print $1, $3}' employees.txt
+  681  5 awk 'BEGIN {print "Name Salary"} {print $1, $3}' employees.tt
+  682  awk 'BEGIN {print "Name Salary"} {print $1, $3}' employees.txt
+  683  awk '{print $0}' employees.txt
+  684  awk '{print NR, $1}' employees.txt
+  685  awk '{print NR, $0}' employees.txt
+  686  awk '$2 < 30 {print $1, $2}' employees.txt
+  687  awk '{printf "Name: %s, Age: %d, Salary: %d\n", $1, $2, $3}' employees.txt
+  688  awk 'END {print "Total employees= ", NR}' employees.txt
+  689  ls -l s1.txt
+  690  chmod u+x s1.txt
+  691  ls -l s1.txt
+  692  chmod o-r s1.txt
+  693  ls -l s1.txt
+  694  chmod 462 s1.txt
+  695  clear
+  696  history
+  697  clear
+  698  history

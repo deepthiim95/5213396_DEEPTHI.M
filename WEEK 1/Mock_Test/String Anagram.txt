@@ -1,0 +1,210 @@
+//String Anagram
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+char* ltrim(char*);
+char* rtrim(char*);
+int parse_int(char*);
+
+#define MAX_KEY_LEN 32
+#define HASH_SIZE 200003 // Large prime to reduce collisions
+
+typedef struct Node {
+    char key[MAX_KEY_LEN];
+    int count;
+    struct Node* next;
+} Node;
+
+Node* hashTable[HASH_SIZE];
+
+unsigned long hashFunction(const char* str) {
+    unsigned long hash = 5381;
+    int c;
+    while ((c = *str++))
+        hash = ((hash << 5) + hash) + c;
+    return hash % HASH_SIZE;
+}
+
+void insertKey(const char* key) {
+    unsigned long idx = hashFunction(key);
+    Node* curr = hashTable[idx];
+    while (curr) {
+        if (strcmp(curr->key, key) == 0) {
+            curr->count++;
+            return;
+        }
+        curr = curr->next;
+    }
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    strcpy(newNode->key, key);
+    newNode->count = 1;
+    newNode->next = hashTable[idx];
+    hashTable[idx] = newNode;
+}
+
+int getCount(const char* key) {
+    unsigned long idx = hashFunction(key);
+    Node* curr = hashTable[idx];
+    while (curr) {
+        if (strcmp(curr->key, key) == 0) {
+            return curr->count;
+        }
+        curr = curr->next;
+    }
+    return 0;
+}
+
+void getCharKey(const char* str, char* out) {
+    int freq[26] = {0};
+    for (int i = 0; str[i]; i++) {
+        freq[str[i] - 'a']++;
+    }
+    int pos = 0;
+    for (int i = 0; i < 26; i++) {
+        while (freq[i]--) {
+            out[pos++] = 'a' + i;
+        }
+    }
+    out[pos] = '\0';
+}
+
+int* stringAnagram(int dictionary_count, char** dictionary, int query_count, char** query, int* result_count) {
+    *result_count = query_count;
+    int* result = malloc(query_count * sizeof(int));
+
+    // Build hash table from dictionary
+    for (int i = 0; i < dictionary_count; i++) {
+        char key[MAX_KEY_LEN];
+        getCharKey(dictionary[i], key);
+        insertKey(key);
+    }
+
+    // Process queries
+    for (int i = 0; i < query_count; i++) {
+        char key[MAX_KEY_LEN];
+        getCharKey(query[i], key);
+        result[i] = getCount(key);
+    }
+
+    return result;
+}
+
+int main()
+{
+    int dictionary_count = parse_int(ltrim(rtrim(readline())));
+    char** dictionary = malloc(dictionary_count * sizeof(char*));
+
+    for (int i = 0; i < dictionary_count; i++) {
+        char* dictionary_item = readline();
+        *(dictionary + i) = dictionary_item;
+    }
+
+    int query_count = parse_int(ltrim(rtrim(readline())));
+    char** query = malloc(query_count * sizeof(char*));
+
+    for (int i = 0; i < query_count; i++) {
+        char* query_item = readline();
+        *(query + i) = query_item;
+    }
+
+    int result_count;
+    int* result = stringAnagram(dictionary_count, dictionary, query_count, query, &result_count);
+
+    for (int i = 0; i < result_count; i++) {
+        printf("%d", *(result + i));
+        if (i != result_count - 1) {
+            printf("\n");
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
+
+char* readline() {
+    size_t alloc_length = 1024;
+    size_t data_length = 0;
+
+    char* data = malloc(alloc_length);
+    while (true) {
+        char* cursor = data + data_length;
+        char* line = fgets(cursor, alloc_length - data_length, stdin);
+        if (!line) {
+            break;
+        }
+        data_length += strlen(cursor);
+        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') {
+            break;
+        }
+        alloc_length <<= 1;
+        data = realloc(data, alloc_length);
+        if (!data) {
+            data = '\0';
+            break;
+        }
+    }
+
+    if (data[data_length - 1] == '\n') {
+        data[data_length - 1] = '\0';
+        data = realloc(data, data_length);
+        if (!data) {
+            data = '\0';
+        }
+    } else {
+        data = realloc(data, data_length + 1);
+        if (!data) {
+            data = '\0';
+        } else {
+            data[data_length] = '\0';
+        }
+    }
+    return data;
+}
+
+char* ltrim(char* str) {
+    if (!str) {
+        return '\0';
+    }
+    if (!*str) {
+        return str;
+    }
+    while (*str != '\0' && isspace(*str)) {
+        str++;
+    }
+    return str;
+}
+
+char* rtrim(char* str) {
+    if (!str) {
+        return '\0';
+    }
+    if (!*str) {
+        return str;
+    }
+    char* end = str + strlen(str) - 1;
+    while (end >= str && isspace(*end)) {
+        end--;
+    }
+    *(end + 1) = '\0';
+    return str;
+}
+
+int parse_int(char* str) {
+    char* endptr;
+    int value = strtol(str, &endptr, 10);
+    if (endptr == str || *endptr != '\0') {
+        exit(EXIT_FAILURE);
+    }
+    return value;
+}
+
+

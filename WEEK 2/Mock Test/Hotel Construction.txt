@@ -1,0 +1,163 @@
+//Hotel Construction
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+char* ltrim(char*);
+char* rtrim(char*);
+char** split_string(char*);
+
+int parse_int(char*);
+
+/*
+ * Complete the 'numberOfWays' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts 2D_INTEGER_ARRAY roads as parameter.
+ */
+
+int numberOfWays(int roads_rows, int roads_columns, int** roads) {
+    int n = roads_rows + 1; // number of cities
+    int dist[51][51];
+
+    // Initialize distances
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (i == j)
+                dist[i][j] = 0;
+            else
+                dist[i][j] = 1e9; // large number
+        }
+    }
+
+    // Fill roads
+    for (int i = 0; i < roads_rows; i++) {
+        int a = roads[i][0];
+        int b = roads[i][1];
+        dist[a][b] = 1;
+        dist[b][a] = 1;
+    }
+
+    // Floyd-Warshall to find all-pairs shortest distances
+    for (int k = 1; k <= n; k++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (dist[i][j] > dist[i][k] + dist[k][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+
+    int count = 0;
+
+    // Check all triplets of distinct cities
+    for (int i = 1; i <= n; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            for (int k = j + 1; k <= n; k++) {
+                if (dist[i][j] == dist[i][k] && dist[i][k] == dist[j][k]) {
+                    count++;
+                }
+            }
+        }
+    }
+
+    return count;
+}
+
+int main()
+{
+    FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+    int roads_rows = parse_int(ltrim(rtrim(readline())));
+    int roads_columns = parse_int(ltrim(rtrim(readline())));
+
+    int** roads = malloc(roads_rows * sizeof(int*));
+
+    for (int i = 0; i < roads_rows; i++) {
+        *(roads + i) = malloc(roads_columns * sizeof(int));
+        char** roads_item_temp = split_string(rtrim(readline()));
+
+        for (int j = 0; j < roads_columns; j++) {
+            int roads_item = parse_int(*(roads_item_temp + j));
+            *(*(roads + i) + j) = roads_item;
+        }
+    }
+
+    int result = numberOfWays(roads_rows, roads_columns, roads);
+
+    fprintf(fptr, "%d\n", result);
+    fclose(fptr);
+
+    return 0;
+}
+
+char* readline() {
+    size_t alloc_length = 1024;
+    size_t data_length = 0;
+    char* data = malloc(alloc_length);
+
+    while (true) {
+        char* cursor = data + data_length;
+        char* line = fgets(cursor, alloc_length - data_length, stdin);
+        if (!line) break;
+        data_length += strlen(cursor);
+        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') break;
+        alloc_length <<= 1;
+        data = realloc(data, alloc_length);
+        if (!data) break;
+    }
+
+    if (data[data_length - 1] == '\n') {
+        data[data_length - 1] = '\0';
+        data = realloc(data, data_length);
+    } else {
+        data = realloc(data, data_length + 1);
+        data[data_length] = '\0';
+    }
+
+    return data;
+}
+
+char* ltrim(char* str) {
+    if (!str) return '\0';
+    if (!*str) return str;
+    while (*str != '\0' && isspace(*str)) str++;
+    return str;
+}
+
+char* rtrim(char* str) {
+    if (!str) return '\0';
+    if (!*str) return str;
+    char* end = str + strlen(str) - 1;
+    while (end >= str && isspace(*end)) end--;
+    *(end + 1) = '\0';
+    return str;
+}
+
+char** split_string(char* str) {
+    char** splits = NULL;
+    char* token = strtok(str, " ");
+    int spaces = 0;
+    while (token) {
+        splits = realloc(splits, sizeof(char*) * ++spaces);
+        splits[spaces - 1] = token;
+        token = strtok(NULL, " ");
+    }
+    return splits;
+}
+
+int parse_int(char* str) {
+    char* endptr;
+    int value = strtol(str, &endptr, 10);
+    if (endptr == str || *endptr != '\0') exit(EXIT_FAILURE);
+    return value;
+}

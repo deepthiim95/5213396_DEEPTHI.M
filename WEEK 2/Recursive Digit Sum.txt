@@ -17,110 +17,50 @@ char** split_string(char*);
 int parse_int(char*);
 
 /*
- * Complete the 'twoArrays' function below.
+ * Complete the 'superDigit' function below.
  *
- * The function is expected to return a STRING.
+ * The function is expected to return an INTEGER.
  * The function accepts following parameters:
- *  1. INTEGER k
- *  2. INTEGER_ARRAY A
- *  3. INTEGER_ARRAY B
+ *  1. STRING n
+ *  2. INTEGER k
  */
-
-/*
- * To return the string from the function, you should either do static allocation or dynamic allocation
- *
- * For example,
- * char* return_string_using_static_allocation() {
- *     static char s[] = "static allocation of string";
- *
- *     return s;
- * }
- *
- * char* return_string_using_dynamic_allocation() {
- *     char* s = malloc(100 * sizeof(char));
- *
- *     s = "dynamic allocation of string";
- *
- *     return s;
- * }
- *
- */
-static int cmp_asc(const void *p, const void *q) {
-    int a = *(const int*)p;
-    int b = *(const int*)q;
-    if (a < b) return -1;
-    if (a > b) return 1;
-    return 0;
-}
-
-static int cmp_desc(const void *p, const void *q) {
-    int a = *(const int*)p;
-    int b = *(const int*)q;
-    if (a > b) return -1;
-    if (a < b) return 1;
-    return 0;
-}
-
-char* twoArrays(int k, int A_count, int* A, int B_count, int* B) {
-    static char yes[] = "YES";
-    static char no[]  = "NO";
-
-    if (A_count != B_count) return no;
-
-    qsort(A, A_count, sizeof(int), cmp_asc);
-    qsort(B, B_count, sizeof(int), cmp_desc);
-
-    for (int i = 0; i < A_count; ++i) {
-        long long sum = (long long)A[i] + (long long)B[i];
-        if (sum < k) return no;
+ long long int sum_digits(char* str) {
+    long long int sum = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        sum += str[i] - '0';
     }
+    return sum;
+}
+int superDigit(char* n, int k) {
+ long long int initial_sum = sum_digits(n);
+    long long int total_sum = initial_sum * k;
 
-    return yes;
+    while (total_sum >= 10) {
+        long long int temp_sum = 0;
+        char temp_str[20];
+        sprintf(temp_str, "%lld", total_sum);
+        
+        for (int i = 0; temp_str[i] != '\0'; i++) {
+            temp_sum += temp_str[i] - '0';
+        }
+        total_sum = temp_sum;
+    }
+    return (int)total_sum;
 }
 
 int main()
 {
     FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
-    int q = parse_int(ltrim(rtrim(readline())));
+    char** first_multiple_input = split_string(rtrim(readline()));
 
-    for (int q_itr = 0; q_itr < q; q_itr++) {
-        char** first_multiple_input = split_string(rtrim(readline()));
+    char* n = *(first_multiple_input + 0);
 
-        int n = parse_int(*(first_multiple_input + 0));
+    int k = parse_int(*(first_multiple_input + 1));
 
-        int k = parse_int(*(first_multiple_input + 1));
+    int result = superDigit(n, k);
 
-        char** A_temp = split_string(rtrim(readline()));
-
-        int* A = malloc(n * sizeof(int));
-
-        for (int i = 0; i < n; i++) {
-            int A_item = parse_int(*(A_temp + i));
-
-            *(A + i) = A_item;
-        }
-
-        char** B_temp = split_string(rtrim(readline()));
-
-        int* B = malloc(n * sizeof(int));
-
-        for (int i = 0; i < n; i++) {
-            int B_item = parse_int(*(B_temp + i));
-
-            *(B + i) = B_item;
-        }
-
-        char* result = twoArrays(k, n, A, n, B);
-
-        fprintf(fptr, "%s\n", result);
-
-        free(A);
-        free(B);
-        free(first_multiple_input);
-        free(A_temp);
-        free(B_temp);
-    }
+    fprintf(fptr, "%d\n", result);
 
     fclose(fptr);
 

@@ -25,28 +25,23 @@ int parse_int(char*);
  */
 
 int numberOfWays(int roads_rows, int roads_columns, int** roads) {
-    int n = roads_rows + 1; // number of cities
+    int n = roads_rows + 1; 
     int dist[51][51];
-
-    // Initialize distances
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             if (i == j)
                 dist[i][j] = 0;
             else
-                dist[i][j] = 1e9; // large number
+                dist[i][j] = 1e9;
         }
     }
 
-    // Fill roads
     for (int i = 0; i < roads_rows; i++) {
         int a = roads[i][0];
         int b = roads[i][1];
         dist[a][b] = 1;
         dist[b][a] = 1;
     }
-
-    // Floyd-Warshall to find all-pairs shortest distances
     for (int k = 1; k <= n; k++) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
@@ -59,7 +54,6 @@ int numberOfWays(int roads_rows, int roads_columns, int** roads) {
 
     int count = 0;
 
-    // Check all triplets of distinct cities
     for (int i = 1; i <= n; i++) {
         for (int j = i + 1; j <= n; j++) {
             for (int k = j + 1; k <= n; k++) {

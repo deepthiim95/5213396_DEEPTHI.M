@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100001
+
+int stack1[MAX_SIZE];
+int stack2[MAX_SIZE];
+int top1 = -1;
+int top2 = -1;
+
+void push1(int val) {
+    stack1[++top1] = val;
+}
+
+int pop1() {
+    return stack1[top1--];
+}
+
+void push2(int val) {
+    stack2[++top2] = val;
+}
+
+int pop2() {
+    return stack2[top2--];
+}
+
+void move_elements() {
+    if (top2 == -1) {
+        while (top1 != -1) {
+            push2(pop1());
+        }
+    }
+}
+
+void enqueue(int val) {
+    push1(val);
+}
+
+void dequeue() {
+    move_elements();
+    if (top2 != -1) {
+        pop2();
+    }
+}
+
+void print_front() {
+    move_elements();
+    if (top2 != -1) {
+        printf("%d\n", stack2[top2]);
+    }
+}
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+     int q;
+    scanf("%d", &q);
+
+    for (int i = 0; i < q; i++) {
+        int type;
+        scanf("%d", &type);
+        if (type == 1) {
+            int x;
+            scanf("%d", &x);
+            enqueue(x);
+        } else if (type == 2) {
+            dequeue();
+        } else if (type == 3) {
+            print_front();
+        }
+    }   
+    return 0;
+}

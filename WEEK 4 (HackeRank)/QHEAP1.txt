@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#define MAX_SIZE 100001
+int heap[MAX_SIZE];
+int heap_size = 0;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void insert(int value) {
+    heap_size++;
+    int current = heap_size;
+    heap[current] = value;
+    while (current > 1 && heap[current] < heap[current/2]) {
+        swap(&heap[current], &heap[current/2]);
+        current /= 2;
+    }
+}
+void delete(int value) {
+    int index_to_delete = -1;
+    for (int i = 1; i <= heap_size; i++) {
+        if (heap[i] == value) {
+            index_to_delete = i;
+            break;
+        }
+    }
+    if (index_to_delete == -1) {
+        return; // Element not found
+    }
+    heap[index_to_delete] = heap[heap_size];
+    heap_size--;
+    int current = index_to_delete;
+    while (current <= heap_size) {
+        int smallest = current;
+        int left_child = 2 * current;
+        int right_child = 2 * current + 1;
+        if (left_child <= heap_size && heap[left_child] < heap[smallest]) {
+            smallest = left_child;}
+        if (right_child <= heap_size && heap[right_child] < heap[smallest]) {
+            smallest = right_child; }
+        if (smallest != current) {
+            swap(&heap[current], &heap[smallest]);
+            current = smallest;
+        } else {
+            break; }
+    }
+}
+void print_min() {
+    if (heap_size > 0) {
+        printf("%d\n", heap[1]);
+    }
+}
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    int Q;
+    scanf("%d", &Q);
+
+    for (int i = 0; i < Q; i++) {
+        int type;
+        scanf("%d", &type);
+        
+        if (type == 1) {
+            int value;
+            scanf("%d", &value);
+            insert(value);
+        } else if (type == 2) {
+            int value;
+            scanf("%d", &value);
+            delete(value);
+        } else if (type == 3) {
+            print_min();
+        }
+    }
+    return 0;
+}
